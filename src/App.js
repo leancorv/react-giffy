@@ -1,5 +1,4 @@
 import './App.css';
-import ListOfGifs from './components/ListOfGifs/ListOfGifs';
 import { Link, Route } from "wouter"
 import Detail from './pages/Detail';
 import Home from './pages/Home';

@@ -8,8 +8,6 @@ export default function Detail({ params }) {
     singleGif.id === params.id
   )
 
-  console.log(gif)
-
   return <>
       <h3 className="App-title">{gif.title}</h3>
       <Gif {...gif} />

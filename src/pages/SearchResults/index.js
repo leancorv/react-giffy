@@ -8,7 +8,12 @@ export default function SearchResults({ params }) {
 
   return <>
     {
-      loading ? <Spinner /> : <ListOfGifs gifs={gifs} />
+      loading 
+        ? <Spinner /> 
+        : <>
+          <h3 className="App-title">{keyword}</h3>
+          <ListOfGifs gifs={gifs} />
+        </>
     }
   </>
 }

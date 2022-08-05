@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders without crashing', () => {
+test('renders without crashing', async () => {
   render(<App />)
-  const title = screen.getByText(/Última búsqueda/i)
+  const title = await screen.findByText(/Última búsqueda/i)
   expect(title).toBeInTheDocument()
 });

@@ -6,7 +6,7 @@ function SearchForm({ onSubmit }) {
     const handleSubmit = e => {
         e.preventDefault()
         // navegar a otra ruta
-        onSubmit(keyword)
+        onSubmit({keyword})
     }
 
     const handleChange = e => {

@@ -37,7 +37,7 @@ export default function SearchResults({ params }) {
             <meta name="rating" content="General" />
           </Helmet>
           <header className="o-header">
-            <SearchForm />
+            <SearchForm initialKeyword={keyword} initialRating={rating}  />
           </header>
           <div className="App-wrapper">
             <h3 className="App-title">

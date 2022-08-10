@@ -4,10 +4,10 @@ import css from './SearchForm.module.css'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
-function SearchForm() {
-    const [keyword, setKeyword] = useState('')
-    const [rating, setRating] = useState(RATINGS[0])
-    const [_, pushLocation] = useLocation()
+function SearchForm({ initialKeyword = '', initialRating = 'g'}) {
+    const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword));
+    const [rating, setRating] = useState(initialRating);
+    const [_, pushLocation] = useLocation();
 
     const handleChange = evt => {
         setKeyword(evt.target.value)

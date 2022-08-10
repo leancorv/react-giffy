@@ -4,22 +4,28 @@ import css from './SearchForm.module.css'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
-const reducer = (state, action) => {
-  if (action.type === 'update_keyword') {
-    return {
-      ...state,
-      keyword: action.payload,
-      times: state.times + 1
-    }
-  } else if (action.type === 'update_rating') {
-    return {
-      ...state,
-      rating: action.payload,
-      times: state.times + 1
-    }
-  }
+const ACTIONS = {
+  UPDATE_KEYWORD: 'update_keyword',
+  UPDATE_RATING: 'update_rating'
+}
 
-  return state
+const reducer = (state, action) => {
+  switch (action.type) {
+    case ACTIONS.UPDATE_KEYWORD:
+      return {
+        ...state,
+        keyword: action.payload,
+        times: state.times + 1
+      }
+      
+    case ACTIONS.UPDATE_RATING:
+      return {
+        ...state,
+        rating: action.payload
+      }
+    default: 
+    return state
+  }
 }
 
 function SearchForm({ initialKeyword = '', initialRating = 'g'}) {
@@ -35,7 +41,7 @@ function SearchForm({ initialKeyword = '', initialRating = 'g'}) {
     const [_, pushLocation] = useLocation();
 
     const handleChange = evt => {
-      dispatch({ type: 'update_keyword', payload: evt.target.value })
+      dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: evt.target.value })
     }
 
     const handleSubmit = evt => {
@@ -45,7 +51,7 @@ function SearchForm({ initialKeyword = '', initialRating = 'g'}) {
     }
 
     const handleChangeRating = evt => {
-      dispatch({ type: 'update_rating', payload: evt.target.value })
+      dispatch({ type: ACTIONS.UPDATE_RATING, payload: evt.target.value })
     }
 
   return (

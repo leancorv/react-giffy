@@ -22,7 +22,7 @@ const REDUCER = (state, action) => {
     return actionReducer ? actionReducer(state, action) : state
 }
 
-export default function useForm ({ initialKeyword, initialRating }) {
+export default function useForm ({ initialKeyword = '', initialRating = 'g'} = {}) {
     const [state, dispatch] = useReducer(REDUCER, {
         keyword: decodeURIComponent(initialKeyword),
         rating: initialRating,
